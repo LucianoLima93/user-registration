@@ -12,7 +12,7 @@ interface Props {
   handleChange: ChangeEventHandler<HTMLInputElement>,
 }
 
-const SimpleInput: React.FC<Props> = ({value, errorName, name, type, label, handleChange, placeholder, isPassword = false}) => {
+const SimpleInput: React.FC<Props> = ({ value, errorName, name, type, label, handleChange, placeholder, isPassword = false }) => {
   const [_type, _setType] = useState(type);
   return (
     <div className={`flex flex-col items-start mb-2`}>
@@ -28,9 +28,8 @@ const SimpleInput: React.FC<Props> = ({value, errorName, name, type, label, hand
           placeholder-slate-400
           rounded-md py-2 pl-2
           ring-1 ring-slate-200 shadow-sm`
-          : 
-          `
-          `}
+            :
+            ``}
           defaultChecked
           id={name}
           placeholder={placeholder}
@@ -42,23 +41,23 @@ const SimpleInput: React.FC<Props> = ({value, errorName, name, type, label, hand
         />
         {
           isPassword &&
-            (_type === 'password' ? 
+          (_type === 'password' ?
             <Image src="/Icons/visibility_24x24.png"
-            className='absolute top-3 right-1'
-            onClick={() => _setType('text')}
-            alt="done"
-            width={16}
-            height={16} />
+              className='absolute top-3 right-1'
+              onClick={() => _setType('text')}
+              alt="done"
+              width={16}
+              height={16} />
             :
             <Image src="/Icons/visibilityoff_24x24.png"
-            alt="done"
-            className='absolute top-3 right-1'
-            onClick={() => _setType('password')}
-            width={16}
-            height={16} />)
+              alt="done"
+              className='absolute top-3 right-1'
+              onClick={() => _setType('password')}
+              width={16}
+              height={16} />)
         }
       </div>
-      {errorName 
+      {errorName
         && <span className={`text-red-600 text-sm mt-1`}>{errorName}</span>}
     </div>
   )

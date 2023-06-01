@@ -41,7 +41,7 @@ export const userSchema = yup.object({
   name: name.required(messages.required('nome')).matches(regex.specialCharacter, messages.specialCharacter('nome')),
   email: email.required(messages.required('email')),
   password: password.required(messages.required('senha')),
-  confirmPasword: yup.string()
+  confirmPasword: yup.string().required(messages.required('confirmar senha'))
      .oneOf([yup.ref('password'), null], messages.confirmPassword),
   document: document.required(messages.required('CPF')),
   status,
